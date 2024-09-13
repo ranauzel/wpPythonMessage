@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayarları Düzenle</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .button {
+            cursor: pointer;
+        }
+        .remove-button {
+            color: red;
+        }
+    </style>
+    <script>
+        function addPhoneField() {
+            const table = document.getElementById('phone-table');
+            const rowCount = table.rows.length;
+            const row = table.insertRow(rowCount);
+
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+
+            const input = document.createElement('input');
+            input.type = 'tel';
+            input.name = 'phone_numbers';
+            input.placeholder = 'Yeni telefon numarası';
+            input.required = true;
+            input.className = 'phone-field';
+            cell1.appendChild(input);
+
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.className = 'button remove-button';
+            removeButton.innerText = 'Sil';
+            removeButton.onclick = function() {
+                table.deleteRow(row.rowIndex);
+            };
+            cell2.appendChild(removeButton);
+        }
+
+        function initializePhoneFields() {
+            const phones = document.getElementsByClassName('phone-field');
+            for (let i = 0; i < phones.length; i++) {
+                phones[i].className = 'phone-field';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Ayarları Düzenle</h1>
+    <form method="POST">
+        <label for="sicaklik_esik">Sıcaklık Eşiği:</label>
+        <input type="number" name="sicaklik_esik" step="0.1" value="{{ settings.sicaklik_esik }}" required><br><br>
+        
+        <label for="phone_numbers">Telefon Numaraları:</label>
+        <table id="phone-table">
+            <thead>
+                <tr>
+                    <th>Telefon Numarası</th>
+                    <th>Silmek İçin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phone in settings.phone_numbers %}
+                    <tr>
+                        <td><input type="tel" name="phone_numbers" value="{{ phone }}" required class="phone-field"></td>
+                        <td><button type="button" class="button remove-button" onclick="this.closest('tr').remove()">Sil</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="button" onclick="addPhoneField()">Yeni Telefon Numarası Ekle</button><br><br>
+        
+        <button type="submit">Kaydet</button>
+    </form>
+    <script>
+        initializePhoneFields();
+    </script>
+</body>
+</html>

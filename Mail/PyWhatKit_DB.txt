@@ -1,0 +1,25 @@
+Date: 12/9/2024
+Time: 16:45
+Phone Number: +9053453863432
+Message: Write the message here
+--------------------
+Date: 12/9/2024
+Time: 16:47
+Phone Number: +9053453863432
+Message: Write the message here
+--------------------
+Date: 12/9/2024
+Time: 16:57
+Phone Number: +9053453863432
+Message: Sıcaklık şu anda 18.3°C.
+--------------------
+Date: 12/9/2024
+Time: 17:9
+Phone Number: +9053453863432
+Message: Sıcaklık şu anda 18.3°C.
+--------------------
+Date: 12/9/2024
+Time: 17:12
+Phone Number: +9053453863432
+Message: Sıcaklık şu anda 18.3°C.
+--------------------
