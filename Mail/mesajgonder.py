@@ -15,7 +15,7 @@ import time
 def get_temperature():
     try:
         THINGSPEAK_CHANNEL_ID = '2626920'  # Your Thingspeak channel ID
-        THINGSPEAK_READ_API_KEY = '374WR0W8MPADP3T9'  # Your API key
+        THINGSPEAK_READ_API_KEY = '**************'  # Your API key
         THINGSPEAK_URL = f'https://api.thingspeak.com/channels/{THINGSPEAK_CHANNEL_ID}/feeds/last.json?api_key={THINGSPEAK_READ_API_KEY}'
 
         response = requests.get(THINGSPEAK_URL)
