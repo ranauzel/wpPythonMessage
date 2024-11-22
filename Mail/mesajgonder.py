@@ -31,7 +31,7 @@ def get_temperature():
         return None
 
 def send_message():
-    phone_number = '+9053453863432'
+    phone_number = '*************'
     waiting_time_to_send = 15
     close_tab = True
     waiting_time_to_close = 2
